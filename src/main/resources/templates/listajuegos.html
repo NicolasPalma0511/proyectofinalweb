@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="encabezado/header :: head"></head>
+<body>
+    <div th:insert="encabezado/header :: menu"></div>
+    <br>
+    <div class="container mt-4">
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2 class="float-left">Listado de Juegos</h2>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <a th:href="@{/formJuego}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Agregar</a>
+                            </div>
+                        </div>
+                        <table class="table mt-3"> 
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">NOMBRE</th>
+                                    <th scope="col">DESCRIPCIÓN</th>
+                                    <th scope="col">CATEGORÍA</th>
+                                    <th scope="col">ACCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="juego : ${juegos}">
+                                    <td th:text="${juego.id}"></td>
+                                    <td th:text="${juego.nombre}"></td>
+                                    <td th:text="${juego.descripcion}"></td>
+                                    <td th:text="${juego.categoria}"></td>
+                                    <td>
+                                        <a th:href="@{/editarJuego/{id}(id=${juego.id})}" class="btn btn-success">Editar</a>
+                                        <a th:href="@{/eliminarJuego/{id}(id=${juego.id})}" class="btn btn-danger" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
