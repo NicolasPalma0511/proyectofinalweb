@@ -13,11 +13,10 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 th:text="${juego.nombre}" class="card-title"></h5>
-						<p th:text="${juego.categoria}" class="card-text"></p>
+                        <p><strong>Categoría: </strong><span th:text="${juego.categoria}" class="card-text"></span></p>
                         <a th:href="@{/verJuego/{id}(id=${juego.id})}" class="btn btn-primary">Ver Detalles</a>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>

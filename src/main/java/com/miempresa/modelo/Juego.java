@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="juego")
@@ -15,14 +17,20 @@ public class Juego {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column
-	private String nombre;
-	
-	@Column
-	private String descripcion;
-	
-	@Column
-	private String categoria;
+	@NotBlank(message = "El nombre no puede estar en blanco")
+    @Size(max = 255, message = "El nombre no puede tener más de 255 caracteres")
+    @Column
+    private String nombre;
+
+    @NotBlank(message = "La descripción no puede estar en blanco")
+    @Size(message = "La descripción no puede tener más de 255 caracteres")
+    @Column
+    private String descripcion;
+
+    @NotBlank(message = "La categoría no puede estar en blanco")
+    @Size(max = 255, message = "La categoría no puede tener más de 255 caracteres")
+    @Column
+    private String categoria;
 	
 	public Juego() {
    	 	

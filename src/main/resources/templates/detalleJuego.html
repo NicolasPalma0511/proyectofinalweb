@@ -11,7 +11,7 @@
             <div class="card-body">
                 <h5 th:text="${juego.nombre}" class="card-title"></h5>
                 <p th:text="${juego.descripcion}" class="card-text"></p>
-                <p th:text="${juego.categoria}" class="card-text"></p>
+                <p><strong>Categoría: </strong><span th:text="${juego.categoria}" class="card-text"></span></p>
                 <a href="/" class="btn btn-primary">Regresar</a>
             </div>
         </div>

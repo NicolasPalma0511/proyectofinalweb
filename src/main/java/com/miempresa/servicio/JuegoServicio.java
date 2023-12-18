@@ -33,9 +33,4 @@ public class JuegoServicio implements IJuegoServicio {
     public void borrar(int id) {
         repo.deleteById(id);
     }
-
-    @Override
-    public List<Juego> buscarPorNombre(String nombre) {
-        return repo.findByNombre(nombre);
-    }
 }

@@ -9,5 +9,4 @@ public interface IJuegoServicio {
     Optional<Juego> listarId(int id);
     int guardar(Juego juego);
     void borrar(int id);
-    List<Juego> buscarPorNombre(String nombre);
 }

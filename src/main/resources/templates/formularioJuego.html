@@ -15,19 +15,22 @@
             <form th:action="@{/guardarJuego}" th:object="${juego}" method="POST">
               <div class="form-group">
                 <label for="exampleInput1">ID</label>
-                <input type="text" th:field="*{id}" class="form-control" placeholder="0">
+                <input type="text" th:field="*{id}" class="form-control" placeholder="0" readonly>
               </div>
               <div class="form-group">
                 <label for="exampleInput1">Nombre</label>
                 <input type="text" th:field="*{nombre}" class="form-control" placeholder="Nombre">
+                <small th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-danger"></small>
               </div>
               <div class="form-group">
-                <label for="exampleInput1">Descripción</label>
-                <input type="text" th:field="*{descripcion}" class="form-control" placeholder="Descripción">
-              </div>
+			    <label for="exampleInput1">Descripción</label>
+			    <input type="text" th:field="*{descripcion}" class="form-control" placeholder="Descripción">
+			    <small th:errors="*{descripcion}" class="text-danger"></small>
+			  </div>
               <div class="form-group">
                 <label for="exampleInput1">Categoría</label>
                 <input type="text" th:field="*{categoria}" class="form-control" placeholder="Categoría">
+                <small th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}" class="text-danger"></small>
               </div>
               <button type="submit" class="btn btn-primary">Guardar</button>
               <a th:href="@{/listarJuegos}" class="btn btn-primary active" role="button" aria-pressed="true">Cancelar</a>
